@@ -1,4 +1,4 @@
-name: pythonci
+name: Python CI
 
 on:
   pull_request:
@@ -27,9 +27,9 @@ jobs:
         run: python app.py
 
   merge:
-    needs: test  # This ensures the merge job only runs if 'test' succeeds
+    needs: test
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.event.action == 'opened'
+    if: needs.test.result == 'success'
     steps:
       - name: Merge pull request
         uses: actions/github-script@v6
