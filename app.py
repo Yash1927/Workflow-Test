@@ -12,3 +12,4 @@ ax.plot(data, color="undefined-color", label="Error")
 
 ax.legend()
 plt.show()
+print(hyyy)
